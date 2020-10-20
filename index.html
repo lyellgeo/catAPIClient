@@ -3,13 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
     <title>Document</title>
 </head>
 <body>
+    <wrapper>
     
     <h2>My Cat Generator</h2>
 
-    <div class="vote-container">
+    <div class="main-container">
 
         <button class="button button-get-cat">Get a New Cat</button>
         <div class="button-container">
@@ -23,26 +25,17 @@
 
 
     </div>
+
+    <button class="button button-display">Display Votes</button>
+
+    <div id="vote-gallery"></div>
+
+    </wrapper>
     
 
     
 </body>
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-<script>
+<script src="./src.js"></script>
 
-    
-    function getCat() {
-
-    axios.get("https://api.thecatapi.com/v1/images/search")
-    .then((response) => {
-        document.getElementById('cat').src = response.data[0].url;
-        })
-    }
-
-    getCat()   
-
-    var catButton = document.getElementsByClassName('button-get-cat')[0]
-    catButton.addEventListener("click", getCat)
-
-</script>
 </html>

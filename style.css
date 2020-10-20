@@ -1,0 +1,104 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+button {
+    border: none;
+    outline: none;
+}
+
+button:active {
+    border: none;
+    outline: none;
+}
+
+button:hover {
+    border: none;
+    outline: none;
+}
+
+button:focus {
+    border: none;
+    outline: none;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+a:visited {
+    text-decoration: none;
+    color: inherit;
+    outline: none;
+
+}
+
+
+ul {
+    list-style-type: none
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.main-container {
+
+}
+
+.button {
+    width: 100px;
+    height: 50px;
+    text-transform: uppercase;
+    padding-left: 10px;
+    padding-right: 10px;
+    background-color: #F2E2CE;
+    border: 1px solid #595959;
+    border-radius: 4px;
+}
+
+.button-container {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+}
+
+.button.button-like {
+    background-color: #D9CAAD;
+}
+
+.button.button-dislike {
+    background-color: #A69177;
+}
+
+#cat {
+    height: 400px;
+    width: 400px;
+    object-fit: cover;
+}
+
+#vote-gallery {
+    display: flex;
+    height: 200px;
+    width: 100%;
+    border: 2px solid green;
+    overflow: auto;
+}
+
+.gallery--image {
+    height: 200px;
+    width: 200px;
+    object-fit: cover;
+    vertical-align: bottom;
+
+}
