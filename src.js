@@ -41,6 +41,7 @@
             axios.post('https://api.thecatapi.com/v1/votes', body);
             this.getCat()
             this.getVotes()
+            this.displayGallery()
         }
 
         voteDown = () => {
@@ -51,12 +52,12 @@
             axios.post('https://api.thecatapi.com/v1/votes', body);
             this.getCat()
             this.getVotes()
+            this.displayGallery()
         }
 
         getVotes = () => {
             axios.get("https://api.thecatapi.com/v1/votes")
                 .then((response) => {
-                        console.log(response)
                         votesData = response.data
                         votesData.forEach((item) => {
                             item.url = "blank"
@@ -83,6 +84,11 @@
             img.src = item.url
             img.alt = "Cat Image";
             img.className = "gallery--image"
+            if (item.value > 0) {
+                img.className = "gallery--image like"
+            } else {
+                img.className = "gallery--image dislike"
+            }
             document.getElementById('vote-gallery').appendChild(img)
         }
 
@@ -92,9 +98,20 @@
 
         }
 
+        deleteAllVotes = () => {
+            votesData.forEach((item) => {
+                var url = "https://api.thecatapi.com/v1/votes/" + item.id
+                axios.delete(url)
+                .then((response) => {console.log(response)})
+            })
+            
+            
+        }
+
         render = () => {
             //change image to new cat
             document.getElementById('cat').src = this.url;
+            
 
         }
 
@@ -104,10 +121,8 @@
     const cat = new CatVoter()
     cat.getCat()
     cat.getVotes()
-    cat.updateVotesURL()
+    cat.displayGallery()
 
-    const catButton = document.getElementsByClassName('button-get-cat')[0];
-    catButton.addEventListener("click", cat.getCat)
 
     const upButton = document.getElementsByClassName('button-like')[0];
     upButton.addEventListener("click", cat.voteUp)
@@ -115,8 +130,8 @@
     const downButton = document.getElementsByClassName('button-dislike')[0];
     downButton.addEventListener("click", cat.voteDown)
 
-    const displayButton = document.getElementsByClassName('button-display')[0];
-    displayButton.addEventListener("click", cat.displayGallery)
+ //   const displayButton = document.getElementsByClassName('button-display')[0];
+ //   displayButton.addEventListener("click", cat.displayGallery)
 
 
 
