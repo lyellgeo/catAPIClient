@@ -9,7 +9,40 @@
     
     <h2>My Cat Generator</h2>
 
+    <div class="vote-container">
+
+        <button class="button button-get-cat">Get a New Cat</button>
+        <div class="button-container">
+            <button class="button button-like">Love It</button>
+            <button class="button button-dislike">Nope It</button>
+        </div>
+
+    
+
+        <img id="cat" src="" alt="cat"></img>
+
+
+    </div>
+    
 
     
 </body>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script>
+
+    
+    function getCat() {
+
+    axios.get("https://api.thecatapi.com/v1/images/search")
+    .then((response) => {
+        document.getElementById('cat').src = response.data[0].url;
+        })
+    }
+
+    getCat()   
+
+    var catButton = document.getElementsByClassName('button-get-cat')[0]
+    catButton.addEventListener("click", getCat)
+
+</script>
 </html>
