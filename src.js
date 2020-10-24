@@ -25,7 +25,7 @@
 
         getCat = () => {
 
-            axios.get("https://api.thecatapi.com/v1/images/search")
+            axios.get("https://cat-api-test.herokuapp.com/")
             .then((response) => {
             this.url = response.data[0].url
             this.id = response.data[0].id
