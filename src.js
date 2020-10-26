@@ -37,19 +37,21 @@
 
         voteUp = () => {
             let body = {
-                  image_id: this.id,
-                  value: 1 
+                    url: this.url,
+                    image_id: this.id,
+                    value: 1,
               }
-            axios.post('https://api.thecatapi.com/v1/votes', body);
+            axios.post('https://cat-photo-server.herokuapp.com/votes', body);
             this.getCat()
         }
 
         voteDown = () => {
             let body = {
-                  image_id: this.id,
-                  value: 0 
+                    url: this.url,
+                    image_id: this.id,
+                    value: 0 
               }
-            axios.post('https://api.thecatapi.com/v1/votes', body);
+            axios.post('https://cat-photo-server.herokuapp.com/votes', body);
             this.getCat()
         }
 
