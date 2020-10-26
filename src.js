@@ -28,9 +28,9 @@
             axios.get("https://cat-photo-server.herokuapp.com/cat")
             .then((response) => {
             console.log(response.data)
-            // this.url = response.data[0].url
-            // this.id = response.data[0].id
-            // this.render();
+            this.url = response.data[0].url
+            this.id = response.data[0].id
+            this.render();
             })
         
         }
