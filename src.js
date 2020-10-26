@@ -32,6 +32,8 @@
             this.id = response.data.id
             this.render();
             })
+
+            this.getVotes();
         
         }
 
@@ -71,22 +73,22 @@
         }
 
         //uses VotesData arr to put url links into the URLData array
-        updateVotesURL = () => {
+        // updateVotesURL = () => {
             
-            var axiosArr = []
-            votesData.forEach((item) => {
-            var url = "https://api.thecatapi.com/v1/images/" + item.image_id
-            axiosArr.push(axios.get(url))
-            })
-            axios.all(axiosArr)
-            .then((response) => {
-                URLData = response;
-                for (let i = 0; i < votesData.length; i++) {
-                    votesData[i].url = URLData[i].data.url
-                }
-                this.displayGallery();
+        //     var axiosArr = []
+        //     votesData.forEach((item) => {
+        //     var url = "https://api.thecatapi.com/v1/images/" + item.image_id
+        //     axiosArr.push(axios.get(url))
+        //     })
+        //     axios.all(axiosArr)
+        //     .then((response) => {
+        //         URLData = response;
+        //         for (let i = 0; i < votesData.length; i++) {
+        //             votesData[i].url = URLData[i].data.url
+        //         }
+        //         this.displayGallery();
 
-            })
+        //     })
 
         }
 
