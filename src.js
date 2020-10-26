@@ -28,8 +28,8 @@
             axios.get("https://cat-photo-server.herokuapp.com/cat")
             .then((response) => {
             console.log(response.data)
-            this.url = response.data[0].url
-            this.id = response.data[0].id
+            this.url = response.data.url
+            this.id = response.data.id
             this.render();
             })
         
