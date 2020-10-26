@@ -57,13 +57,14 @@
 
         getVotes = () => {
             votesData = []
-            axios.get("https://api.thecatapi.com/v1/votes?limit=50")
+            axios.get("https://cat-photo-server.herokuapp.com/votes")
                 .then((response) => {
+                        console.log(response)
                         votesData = response.data
-                        votesData.forEach((item) => {
-                            item.url = "https://picsum.photos/seed/picsum/536/354"
-                        });
-                        this.updateVotesURL();
+                        // votesData.forEach((item) => {
+                        //     item.url = "https://picsum.photos/seed/picsum/536/354"
+                        // });
+                        // this.updateVotesURL();
 
                     })
         }
