@@ -25,11 +25,12 @@
 
         getCat = () => {
 
-            axios.get("https://cat-api-test.herokuapp.com/")
+            axios.get("https://cat-photo-server.herokuapp.com/cat")
             .then((response) => {
-            this.url = response.data[0].url
-            this.id = response.data[0].id
-            this.render();
+            console.log(response.data)
+            // this.url = response.data[0].url
+            // this.id = response.data[0].id
+            // this.render();
             })
         
         }
