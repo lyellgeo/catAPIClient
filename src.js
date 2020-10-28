@@ -75,7 +75,8 @@
         }
 
         displayGallery = () => {
-            votesData.forEach((item) => this.makeImage(item)
+            votesData.forEach((item) => this.makeImage(item))
+            votesData = []
             )
 
         }      
