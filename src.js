@@ -73,8 +73,6 @@
         }
 
 
-        
-
         makeImage = (item) => {
             var img = new Image()
             img.src = item.url
