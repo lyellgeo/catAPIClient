@@ -48,7 +48,7 @@
         }
 
         getVotes = () => {
-            votesData = []
+            
             axios.get("https://cat-photo-server.herokuapp.com/votes")
                 .then((response) => {
                         console.log(response)
