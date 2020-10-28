@@ -16,7 +16,7 @@
 
             axios.get("https://cat-photo-server.herokuapp.com/cat")
             .then((response) => {
-            console.log(response.data)
+            console.log("getCat Response", response.data)
             this.url = response.data.url
             this.id = response.data.id
             this.render();
@@ -54,7 +54,7 @@
             
             axios.get("https://cat-photo-server.herokuapp.com/votes")
                 .then((response) => {
-                        console.log(response)
+                        console.log("GetVotes Response", response)
                         votesData = response.data
                         this.displayGallery();
                     })
@@ -77,7 +77,7 @@
         displayGallery = () => {
             votesData.forEach((item) => this.makeImage(item))
             votesData = []
-            )
+            
 
         }      
 
