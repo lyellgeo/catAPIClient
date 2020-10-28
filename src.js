@@ -33,8 +33,10 @@
                     image_id: this.id,
                     value: 1,
               }
-            axios.post('https://cat-photo-server.herokuapp.com/votes', body);
-            this.getCat()
+            axios.post('https://cat-photo-server.herokuapp.com/votes', body).then(
+                this.getCat()
+            )
+            
         }
 
         voteDown = () => {
@@ -43,8 +45,9 @@
                     image_id: this.id,
                     value: 0 
               }
-            axios.post('https://cat-photo-server.herokuapp.com/votes', body);
-            this.getCat()
+            axios.post('https://cat-photo-server.herokuapp.com/votes', body)
+                .then(this.getCat());
+            
         }
 
         getVotes = () => {
