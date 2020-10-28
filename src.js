@@ -1,15 +1,4 @@
 
-    // var catButton = document.getElementsByClassName('button-get-cat')[0]
-    // catButton.addEventListener("click", getCat)
-
-    // function getCat() {
-
-    // axios.get("https://api.thecatapi.com/v1/images/search")
-    // .then((response) => {
-    //     document.getElementById('cat').src = response.data[0].url;
-    //     })
-    // }
-
 
     axios.defaults.headers.common['x-api-key'] = "0a814828-8580-4bf2-9919-7c1779573435";
     axios.defaults.headers.common['Content-Type'] = 'application/json'; 
@@ -31,9 +20,10 @@
             this.url = response.data.url
             this.id = response.data.id
             this.render();
+            this.getVotes();
             })
 
-            this.getVotes();
+            
         
         }
 
@@ -64,11 +54,6 @@
                         console.log(response)
                         votesData = response.data
                         this.displayGallery();
-                        // votesData.forEach((item) => {
-                        //     item.url = "https://picsum.photos/seed/picsum/536/354"
-                        // });
-                        // this.updateVotesURL();
-
                     })
         }
 
@@ -90,31 +75,8 @@
             votesData.forEach((item) => this.makeImage(item)
             )
 
-        }
+        }      
 
-        deleteAllVotes = () => {
-            votesData.forEach((item) => {
-                var url = "https://api.thecatapi.com/v1/votes/" + item.id
-                axios.delete(url)
-                .then((response) => {console.log(response)})
-            })
-            
-            
-        }
-        //same functionality as deleteAllvotes, but uses axios.all to send all delete requests at once
-
-        deleteAllVotes2 = () => {
-            var axiosArr = []
-            votesData.forEach((item) => {
-             var url = "https://api.thecatapi.com/v1/votes/" + item.id;
-                axiosArr.push(axios.delete(url))
-            })
-            axios.all(axiosArr).then((response) => {
-                console.log(response)
-                votesData = []
-            })
-
-        }
 
         render = () => {
             //change image to new cat
