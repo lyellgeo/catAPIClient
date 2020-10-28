@@ -93,9 +93,6 @@
     
     const cat = new CatVoter()
 
-    cat.getCat()
-
-
     const upButton = document.getElementsByClassName('button-like')[0];
     upButton.addEventListener("click", cat.voteUp)
 
