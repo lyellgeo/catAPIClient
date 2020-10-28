@@ -75,6 +75,7 @@
         }
 
         displayGallery = () => {
+            document.getElementById('vote-gallery').innerHTML = ""
             votesData.forEach((item) => this.makeImage(item))
             votesData = []
             
